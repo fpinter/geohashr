@@ -23,3 +23,25 @@ Rcpp::CharacterVector cpp_geohash_encode(Rcpp::NumericVector lat,
   }
   return geohash_out;
 }
+
+// [[Rcpp::export]]
+Rcpp::DataFrame cpp_geohash_decode(Rcpp::CharacterVector hash) {
+
+  int outlen = hash.size();
+  Rcpp::NumericVector lat(outlen);
+  Rcpp::NumericVector lng(outlen);
+
+  Rcpp::CharacterVector::iterator it_hash;
+  Rcpp::NumericVector::iterator it_lat, it_lng;
+  for(it_hash = hash.begin(), it_lat = lat.begin(), it_lng = lng.begin();
+      it_hash != hash.end() && it_lat != lat.end() && it_lng != lng.end();
+      ++it_hash, ++it_lat, ++it_lng) {
+    char *hash0 = *it_hash;
+    GeoCoord decoded_hash = geohash_decode(hash0);
+    *it_lat = decoded_hash.latitude;
+    *it_lng = decoded_hash.longitude;
+  }
+
+  return Rcpp::DataFrame::create(Rcpp::Named("lat")=lat,
+                                 Rcpp::Named("lng")=lng);
+}

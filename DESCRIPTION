@@ -1,0 +1,16 @@
+Package: geohashr
+Type: Package
+Title: R wrapper for libgeohash
+Version: 0.1
+Date: 2015-06-10
+Author: Frank Pinter
+Maintainer: Frank Pinter <frank.pinter@brattle.com>
+Description: Encodes geohashes from geographical coordinates
+License: file LICENSE
+LazyData: TRUE
+Imports: 
+    Rcpp (>= 0.11.6)
+LinkingTo: 
+    Rcpp
+Suggests: sp,
+    testthat
