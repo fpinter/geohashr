@@ -3,9 +3,12 @@ Type: Package
 Title: R wrapper for libgeohash
 Version: 0.1
 Date: 2015-06-10
-Author: Frank Pinter
-Maintainer: Frank Pinter <frank.pinter@brattle.com>
-Description: Encodes geohashes from geographical coordinates
+Authors@R: c(person("Frank", "Pinter", email = "frank@frankpinter.com",
+                   role = c("aut", "cre", "cph")),
+             person("Derek", "Smith", role = "ctb"),
+             person("SimpleGeo", role = "cph"))
+Maintainer: Frank Pinter <frank@frankpinter.com>
+Description: Encodes geohashes from geographical coordinates.
 License: file LICENSE
 LazyData: TRUE
 Imports:
